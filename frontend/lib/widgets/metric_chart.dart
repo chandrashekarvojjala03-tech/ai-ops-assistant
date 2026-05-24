@@ -17,11 +17,6 @@ class MetricChart extends StatelessWidget {
 
       height:90,
 
-      child: Padding(
-
-       padding:
-        EdgeInsets.all(12),
-
       child: LineChart(
 
         LineChartData(
@@ -67,7 +62,6 @@ class MetricChart extends StatelessWidget {
         );
 
       },
-    ),
   ),
 ),
 

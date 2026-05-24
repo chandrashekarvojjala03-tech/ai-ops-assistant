@@ -27,3 +27,11 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# Python backend
+__pycache__/
+*.pyc
+.venv/
+
+# VS Code
+.vscode/

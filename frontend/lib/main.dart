@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/alerts_screen.dart';
 import 'screens/incident_history_screen.dart';
+import 'screens/ai_chat_screen.dart';
 
 void main(){
 
@@ -60,13 +61,15 @@ extends State<MainScreen>{
 
 int index=0;
 
-final screens=[
+final screens = [
 
-DashboardScreen(),
+  const DashboardScreen(),
 
-AlertsScreen(),
+  const AlertsScreen(),
 
-IncidentHistoryScreen()
+  const IncidentHistoryScreen(),
+
+  AIChatScreen(),
 
 ];
 
@@ -77,41 +80,49 @@ return Scaffold(
 
 body:screens[index],
 
-bottomNavigationBar:
+bottomNavigationBar: BottomNavigationBar(
 
-BottomNavigationBar(
+  currentIndex: index,
 
-currentIndex:index,
+  onTap: (i){
 
-onTap:(i){
+    setState(() {
+      index = i;
+    });
 
-setState((){
+  },
 
-index=i;
+  type: BottomNavigationBarType.fixed,
 
-});
+  backgroundColor: Color(0xFF111827),
 
-},
+  selectedItemColor: Colors.cyan,
 
-items: const [
+  unselectedItemColor: Colors.grey,
 
-BottomNavigationBarItem(
-icon: Icon(Icons.dashboard),
-label: "Dashboard"
-),
+  items: const [
 
-BottomNavigationBarItem(
-icon: Icon(Icons.warning),
-label:"Alerts"
-),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.dashboard),
+      label: "Dashboard",
+    ),
 
-BottomNavigationBarItem(
-icon: Icon(Icons.history),
-label:"History"
-)
+    BottomNavigationBarItem(
+      icon: Icon(Icons.warning),
+      label: "Alerts",
+    ),
 
-],
+    BottomNavigationBarItem(
+      icon: Icon(Icons.history),
+      label: "History",
+    ),
 
+    BottomNavigationBarItem(
+      icon: Icon(Icons.smart_toy),
+      label: "AI",
+    ),
+
+  ],
 ),
 
 );
